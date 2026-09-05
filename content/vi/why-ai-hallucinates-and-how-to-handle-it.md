@@ -1,6 +1,6 @@
 +++
 date = '2026-09-05T21:10:32+07:00'
-draft = true
+draft = false
 title = 'Tại sao AI hallucinates và giải quyết vấn đề này như thế nào?'
 description = 'AI hallucinates vì nó đang dự đoán từ tiếp theo, không kiểm tra sự thật. Tìm hiểu nguyên nhân và cách giảm rủi ro khi dùng AI trong thực tế.'
 +++
