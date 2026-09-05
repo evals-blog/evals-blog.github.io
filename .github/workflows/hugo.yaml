@@ -120,6 +120,27 @@ jobs:
             --minify \
             --cacheDir "${{ runner.temp }}/.cache/hugo"
 
+      - name: Add root redirect for GitHub Pages
+        run: |
+          cat <<'EOF' > public/index.html
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8" />
+              <meta http-equiv="refresh" content="0; url=/vi/" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              <title>Redirecting...</title>
+              <script>
+                window.location.replace('/vi/');
+              </script>
+            </head>
+            <body>
+              <p>Redirecting to the Vietnamese homepage...</p>
+            </body>
+          </html>
+          EOF
+          cp public/index.html public/404.html
+
       - name: Cache save
         uses: actions/cache/save@v6
         with:
