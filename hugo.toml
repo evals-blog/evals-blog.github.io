@@ -1,0 +1,20 @@
+title = 'Evals Blog by Thuat Nguyen'
+theme = 'ananke'
+
+defaultContentLanguage = "vi"
+defaultContentLanguageInSubdir = true
+
+[params]
+site_logo = "images/logo.png"
+
+[languages.vi]
+label = "Vietnamese"
+weight = 1
+contentDir = 'content/vi'
+baseURL = "https://evals-blog.github.io/vi/"
+
+[languages.en]
+label = "English"
+weight = 2
+contentDir = 'content/en'
+baseURL = "https://evals-blog.github.io/en/"

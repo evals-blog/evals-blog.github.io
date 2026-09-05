@@ -1,0 +1,30 @@
+<nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between w-100">
+    <div class="flex items-center justify-center" style="flex: 1 1 0%;">
+      {{ with .Site.Params.site_logo }}
+        <a href="{{ $.Site.Home.RelPermalink }}" class="f3 fw2 hover-white white-90 dib no-underline" aria-label="{{ $.Site.Title }}" style="display:flex; align-items:center; justify-content:center;">
+          <img src="{{ urls.RelURL . }}" alt="{{ $.Site.Title }}" style="display:block; height:120px; width:auto; max-width:100%; object-fit:contain;" />
+        </a>
+      {{ else }}
+        <a href="{{ .Site.Home.RelPermalink }}" class="f3 fw2 hover-white white-90 dib no-underline">
+          {{ .Site.Title }}
+        </a>
+      {{ end }}
+    </div>
+    <div class="flex-l items-center">
+      {{ partials.Include "i18nlist.html" . }}
+      {{ if .Site.Menus.main }}
+        <ul class="{{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "pr0 ml3" "pl0 mr3" }}">
+          {{ range .Site.Menus.main }}
+          <li class="list f5 f4-ns fw4 dib {{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "pl3" "pr3" }}">
+            <a class="hover-white white-90 no-underline" href="{{ .URL }}" title="{{ lang.Translate "pageTitle" . }}">
+              {{ .Name }}
+            </a>
+          </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+      {{ partials.IncludeCached "social/follow.html" . }}
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,55 @@
+[more]
+other = "Xem thêm"
+
+[allTitle]
+other = "Tất cả {{.Title }}"
+
+[recentTitle]
+other = "Mới nhất {{.Title }}"
+
+[readMore]
+other = "đọc thêm"
+
+[by]
+other = "Bởi"
+
+[whatsInThis]
+other = "Nội dung trong {{ .Type }} này"
+
+[related]
+other = "Liên quan"
+
+[yourName]
+other = "Tên của bạn"
+
+[emailAddress]
+other = "Địa chỉ email"
+
+[message]
+other = "Tin nhắn"
+
+[emailRequiredNote]
+other = "Cần nhập địa chỉ email."
+
+[send]
+other = "Gửi"
+
+[editPage]
+other = "Cải thiện trang này trên GitHub"
+
+[since]
+other = "kể từ"
+
+[taxonomyPageList]
+other = "Dưới đây là các trang sử dụng thuật ngữ phân loại “{{ .Title }}”"
+
+[readingTime]
+one = "Một phút đọc"
+other = "{{ .Count }} phút đọc"
+
+[wordCount]
+one = "Một từ"
+other = "{{ .Count }} từ"
+
+[pageTitle]
+other = "Trang {{ .Name }}"
