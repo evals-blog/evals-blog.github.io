@@ -1,0 +1,76 @@
+<footer class="{{ .Site.Params.background_color_class | compare.Default "bg-black" }} bottom-0 w-100 pa3" role="contentinfo">
+  <style>
+    .site-footer-inner {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .site-footer-copy {
+      justify-self: start;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .site-footer-email {
+      justify-self: end;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.7);
+      white-space: nowrap;
+    }
+
+    .site-footer-email a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+    }
+
+    .site-footer-email a:hover {
+      color: #fff;
+    }
+
+    .site-footer-social {
+      justify-self: end;
+    }
+
+    @media (max-width: 480px) {
+      .site-footer-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .site-footer-copy,
+      .site-footer-email {
+        font-size: 0.8rem;
+        width: 100%;
+        justify-self: auto;
+        white-space: normal;
+      }
+
+      .site-footer-email {
+        text-align: left;
+      }
+
+      .site-footer-social {
+        width: 100%;
+        justify-self: auto;
+      }
+    }
+  </style>
+
+  <div class="site-footer-inner">
+    <div class="site-footer-copy">
+      &copy; {{ with .Site.Copyright | compare.Default .Site.Title }} {{ . | safe.HTML }} {{ now.Format "2006" }} {{ end }}
+    </div>
+
+    <div class="site-footer-email">
+      Email: <a href="mailto:thienthuatng@gmail.com">thienthuatng@gmail.com</a>
+    </div>
+
+    <div class="site-footer-social">{{ partials.IncludeCached "social/follow.html" . }}</div>
+  </div>
+</footer>
