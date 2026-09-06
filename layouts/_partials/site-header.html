@@ -7,8 +7,8 @@
     {{ $cover_dimming_class := site.Params.cover_dimming_class | compare.Default "bg-black-60" }}
     <div class="{{ $cover_dimming_class }}">
       {{ partials.Include "site-navigation.html" .}}
-      <div class="{{ $header_section_class }}">
-        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title">
+      <div class="{{ $header_section_class }} mobile-hero-block">
+        <h1 class="f2 f-subheadline-l fw2 white-90 mb0 lh-title mobile-hero-title">
           {{ .Title | compare.Default .Site.Title }}
         </h1>
         {{ with .Params.description }}
@@ -24,8 +24,8 @@
     <div class="pb2-m pb3-l {{ .Site.Params.background_color_class | compare.Default "bg-black" }}">
       {{ partials.Include "site-navigation.html" . }}
       {{ $header_section_class := .Param "header_section_class" | compare.Default "tc-l pv1 ph2 ph3-ns" }}
-      <div class="{{ $header_section_class }}">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+      <div class="{{ $header_section_class }} mobile-hero-block">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title mobile-hero-title">
           {{ .Title | compare.Default .Site.Title }}
         </h1>
         {{ with .Params.description }}
@@ -37,3 +37,15 @@
     </div>
   </header>
 {{ end }}
+<style>
+  @media (max-width: 35em) {
+    .mobile-hero-block {
+      padding-top: 0.35rem;
+      padding-bottom: 1.25rem;
+    }
+
+    .mobile-hero-title {
+      margin-top: 0;
+    }
+  }
+</style>
