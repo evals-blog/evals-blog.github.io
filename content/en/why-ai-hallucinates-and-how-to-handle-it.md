@@ -167,7 +167,7 @@ That is why understanding hallucination is a critical skill in the age of AI.
 
 ## Sources
 
-- IBM. "What is AI hallucination?" https://www.ibm.com/topics/ai-hallucinations
-- Microsoft Learn. "What is AI hallucination?" https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/groundedness
+- IBM. "What is AI hallucination?" https://www.ibm.com/think/topics/ai-hallucinations
+- Microsoft Learn. Azure OpenAI FAQ — "When I ask the model a question about something that happened recently before the knowledge cutoff and it got the answer wrong. Why does this happen?" https://learn.microsoft.com/en-us/azure/ai-services/openai/faq
 
-These sources all point to the same idea: language models generate answers based on probabilities and learned patterns, so grounding, verification, and human oversight are essential to reduce hallucination risk.
+These sources all point to the same idea: language models generate answers from patterns in training data and probability, so they are not always correct; grounding, verification, and human review are essential to reduce hallucination risk.

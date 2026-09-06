@@ -166,7 +166,7 @@ Khi bạn dùng AI đúng cách, nó sẽ trở thành một công cụ mạnh m
 
 ## Nguồn tham khảo
 
-- IBM. "What is AI hallucination?" https://www.ibm.com/topics/ai-hallucinations
-- Microsoft Learn. "What is AI hallucination?" https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/groundedness
+- IBM. "What is AI hallucination?" https://www.ibm.com/think/topics/ai-hallucinations
+- Microsoft Learn. Azure OpenAI FAQ — "When I ask the model a question about something that happened recently before the knowledge cutoff and it got the answer wrong. Why does this happen?" https://learn.microsoft.com/en-us/azure/ai-services/openai/faq
 
-Những nguồn trên đều nhấn mạnh một điểm chung: mô hình ngôn ngữ tạo ra câu trả lời dựa trên xác suất và dữ liệu học, nên cần có grounding, kiểm chứng và con người ở vòng lặp xác minh để giảm rủi ro hallucination.
+Những nguồn trên đều nhấn mạnh một điểm chung: mô hình ngôn ngữ tạo ra câu trả lời dựa trên mẫu dữ liệu và xác suất, nên không phải lúc nào cũng đúng; việc có grounding, kiểm chứng và con người ở vòng lặp xác minh là cách giảm rủi ro hallucination.
