@@ -1,4 +1,4 @@
 +++
 title = "AI thực hành"
-description = "Blog thực hành của Thuat Nguyen về đánh giá AI và dùng AI hiệu quả: kiểm thử mô hình, xây dựng evals và đạt kết quả đáng tin cậy, hữu ích trong công việc thực tế."
+description = "Blog về kiểm thử AI và dùng AI cho tốt: LLM evals, đo lường chất lượng và mẹo thực tế trong công việc — bởi Thuat Nguyen."
 +++
