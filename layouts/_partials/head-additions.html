@@ -1,1 +1,20 @@
 <meta name="google-site-verification" content="-Mkz9osexRGusX3C8lpAUWS6z-HFjnc8cAuO1XpziAQ" />
+
+{{- /* Multilingual SEO: point search engines at the translations of this page. */ -}}
+<link rel="icon" href="{{ absURL "images/logo.jpg" }}" type="image/jpeg">
+{{- range .AllTranslations -}}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{- end -}}
+{{- with site.Sites.Default.Home -}}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+{{- end -}}
+
+{{- /* Social sharing: default image, per language, plus locale alternates. */ -}}
+{{- $share_image := site.Params.share_image | compare.Default "images/logo.jpg" -}}
+<meta property="og:image" content="{{ absURL $share_image }}">
+<meta property="og:image:width" content="1240">
+<meta property="og:image:height" content="676">
+<meta name="twitter:image" content="{{ absURL $share_image }}">
+{{- range .Translations -}}
+  <meta property="og:locale:alternate" content="{{ .Language.Lang }}">
+{{- end -}}

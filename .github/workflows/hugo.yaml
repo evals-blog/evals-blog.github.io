@@ -120,8 +120,9 @@ jobs:
             --minify \
             --cacheDir "${{ runner.temp }}/.cache/hugo"
 
-      - name: Add root redirect for GitHub Pages
+      - name: Add root files for GitHub Pages
         run: |
+          # Redirect the bare root URL to the default (Vietnamese) homepage.
           cat <<'EOF' > public/index.html
           <!doctype html>
           <html lang="en">
@@ -139,7 +140,53 @@ jobs:
             </body>
           </html>
           EOF
-          cp public/index.html public/404.html
+
+          # Crawler rules. Hugo emits a sitemap per language under /vi/ and /en/,
+          # so the root sitemap.xml below is a sitemap index that points to both.
+          cat <<'EOF' > public/robots.txt
+          User-agent: *
+          Allow: /
+
+          Sitemap: https://evals-blog.github.io/sitemap.xml
+          EOF
+
+          cat <<'EOF' > public/sitemap.xml
+          <?xml version="1.0" encoding="UTF-8"?>
+          <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <sitemap>
+              <loc>https://evals-blog.github.io/vi/sitemap.xml</loc>
+            </sitemap>
+            <sitemap>
+              <loc>https://evals-blog.github.io/en/sitemap.xml</loc>
+            </sitemap>
+          </sitemapindex>
+          EOF
+
+          # Real 404 page (served with a 404 status by GitHub Pages) instead of a
+          # silent redirect, so visitors and crawlers can reach either language.
+          cat <<'EOF' > public/404.html
+          <!doctype html>
+          <html lang="vi">
+            <head>
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1" />
+              <title>404 · Không tìm thấy trang | Page not found</title>
+              <style>
+                body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; background: #111; color: #eee; display: flex; min-height: 100vh; align-items: center; justify-content: center; text-align: center; }
+                main { padding: 2rem; }
+                h1 { font-size: 3rem; margin: 0 0 0.5rem; }
+                a { color: #9ecbff; }
+              </style>
+            </head>
+            <body>
+              <main>
+                <h1>404</h1>
+                <p>Trang bạn đang tìm không tồn tại hoặc đã bị di chuyển.<br />The page you are looking for does not exist or has moved.</p>
+                <p><a href="/vi/">Trang chủ tiếng Việt</a> &middot; <a href="/en/">English homepage</a></p>
+              </main>
+            </body>
+          </html>
+          EOF
 
       - name: Cache save
         uses: actions/cache/save@v6

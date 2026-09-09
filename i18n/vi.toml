@@ -1,6 +1,9 @@
 [more]
 other = "Xem thêm"
 
+[translations]
+other = "Ngôn ngữ"
+
 [allTitle]
 other = "Tất cả {{.Title }}"
 

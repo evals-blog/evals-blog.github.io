@@ -5,13 +5,17 @@ defaultContentLanguage = "vi"
 defaultContentLanguageInSubdir = true
 
 [params]
-site_logo = "images/logo.png"
+site_logo = "images/logo.jpg"
 
 [languages.vi]
 label = "Vietnamese"
 weight = 1
 contentDir = 'content/vi'
 baseURL = "https://evals-blog.github.io/vi/"
+
+# Vietnamese convention: "ngày 5 tháng 9, 2026" instead of "tháng 9 5, 2026".
+[languages.vi.params]
+date_format = ":date_long"
 
 [languages.en]
 label = "English"
