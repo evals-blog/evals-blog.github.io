@@ -3,6 +3,7 @@ date = '2026-09-07T09:00:00+07:00'
 draft = false
 title = 'RAG in practice: grounding AI answers in your own documents'
 description = 'A language model only knows its training data. RAG lets it read your documents before answering — like an open-book exam. The pipeline, a minimal code sketch, and tuning tips.'
+summary = 'A model only knows its training data. RAG lets it read your documents before answering — the pipeline, a code sketch, and tuning tips.'
 featured_image = 'cover.svg'
 show_reading_time = true
 +++

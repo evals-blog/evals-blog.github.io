@@ -3,6 +3,7 @@ date = '2026-09-06T09:00:00+07:00'
 draft = false
 title = 'How to evaluate AI quality: a practical intro to LLM evals'
 description = 'Chatting with a model feels great, but feelings are not data. Learn how to build a small eval set, score answers, and catch quality regressions before your users do.'
+summary = 'Turn "it feels worse" into a number: build a small eval set, score answers, and catch quality regressions before your users do.'
 featured_image = 'cover.svg'
 show_reading_time = true
 +++

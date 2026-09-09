@@ -3,6 +3,7 @@ date = '2026-09-05T21:10:32+07:00'
 draft = false
 title = 'Why AI hallucinates and how to handle it'
 description = 'AI hallucinates because it predicts the next token, not because it verifies facts. Learn the causes and how to reduce risk when using AI in practice.'
+summary = 'Why AI produces confident-sounding but false answers — and how to reduce the risk: causes, examples, and practical safeguards.'
 featured_image = 'cover.svg'
 +++
 

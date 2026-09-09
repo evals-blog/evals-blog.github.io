@@ -3,6 +3,7 @@ date = '2026-09-08T09:00:00+07:00'
 draft = false
 title = 'Prompt engineering: how to talk to AI models clearly'
 description = 'The same model gives very different answers depending on how you ask. Learn the building blocks of a good prompt — role, context, task, format, examples — and when prompting is not enough.'
+summary = 'The same model answers very differently depending on how you ask. Learn the building blocks of a clear prompt — and when prompting is not enough.'
 featured_image = 'cover.svg'
 show_reading_time = true
 +++

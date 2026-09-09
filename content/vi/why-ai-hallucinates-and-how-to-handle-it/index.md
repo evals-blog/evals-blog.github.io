@@ -3,6 +3,7 @@ date = '2026-09-05T21:10:32+07:00'
 draft = false
 title = 'Tại sao AI hallucinates và giải quyết vấn đề này như thế nào?'
 description = 'AI hallucinates vì nó đang dự đoán từ tiếp theo, không kiểm tra sự thật. Tìm hiểu nguyên nhân và cách giảm rủi ro khi dùng AI trong thực tế.'
+summary = 'Vì sao AI đưa ra câu trả lời tự tin nhưng sai sự thật — và cách giảm rủi ro: nguyên nhân, ví dụ và các biện pháp thực tế.'
 featured_image = 'cover.svg'
 +++
 

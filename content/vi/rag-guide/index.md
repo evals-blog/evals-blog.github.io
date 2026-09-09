@@ -3,6 +3,7 @@ date = '2026-09-07T09:00:00+07:00'
 draft = false
 title = 'RAG thực hành: gắn câu trả lời AI vào tài liệu của bạn'
 description = 'Mô hình ngôn ngữ chỉ biết dữ liệu mà nó được huấn luyện. RAG cho AI đọc tài liệu của bạn trước khi trả lời — giống như một kỳ thi mở sách. Các bước của pipeline, một đoạn code tối giản và mẹo tinh chỉnh.'
+summary = 'Mô hình chỉ biết dữ liệu huấn luyện. RAG cho AI đọc tài liệu của bạn trước khi trả lời — quy trình, code mẫu và mẹo tinh chỉnh.'
 featured_image = 'cover.svg'
 show_reading_time = true
 +++

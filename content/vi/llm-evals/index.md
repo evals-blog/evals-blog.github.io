@@ -3,6 +3,7 @@ date = '2026-09-06T09:00:00+07:00'
 draft = false
 title = 'Đánh giá chất lượng AI: nhập môn LLM evals thực hành'
 description = 'Trò chuyện với mô hình thì rất thích, nhưng cảm xúc không phải là dữ liệu. Tìm hiểu cách xây một bộ eval nhỏ, chấm điểm câu trả lời và phát hiện chất lượng đi xuống trước khi người dùng gặp phải.'
+summary = 'Biến "cảm giác tệ hơn" thành con số: xây bộ eval nhỏ, chấm điểm câu trả lời và bắt kịp chất lượng đi xuống trước khi người dùng gặp phải.'
 featured_image = 'cover.svg'
 show_reading_time = true
 +++
