@@ -1,0 +1,9 @@
+{{/* Site override: article pages get a clean header (nav on a dark band)
+       instead of the theme's full-bleed featured-image hero, so the title
+       area stays readable. The featured image still appears on cards and
+       inside the article body. */ -}}
+<header>
+  <div class="{{ .Site.Params.background_color_class | compare.Default "bg-black" }}">
+    {{ partials.Include "site-navigation.html" . }}
+  </div>
+</header>

@@ -2,7 +2,7 @@
 other = "Xem thêm"
 
 [translations]
-other = "Ngôn ngữ"
+other = "Read in"
 
 [allTitle]
 other = "Tất cả {{.Title }}"
