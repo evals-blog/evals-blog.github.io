@@ -15,4 +15,4 @@ Posts here are written to stand alone: read one, try it the same day, keep what 
 
 ## Where this fits
 
-This is the "in practice" side of the blog. Start with the [post below](/en/daily-tips/why-ai-hallucinates-and-how-to-handle-it/) — why models invent confident-sounding but wrong answers, and how to guard against it — then harden your workflow with [RAG](/en/rag/), [clear prompting](/en/prompting/), and [evals](/en/evals/).
+This is the "in practice" side of the blog. New here? Start with [why models invent confident-sounding but wrong answers](/en/daily-tips/why-ai-hallucinates-and-how-to-handle-it/), then [package repeatable know-how as agent skills](/en/daily-tips/agent-skills/). Either way, harden your workflow with [RAG](/en/rag/), [clear prompting](/en/prompting/), and [evals](/en/evals/).

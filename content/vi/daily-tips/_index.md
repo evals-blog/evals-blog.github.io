@@ -15,4 +15,4 @@ Các bài ở đây được viết để đọc độc lập: đọc một bài
 
 ## Chủ đề này nằm ở đâu
 
-Đây là phần “thực hành” của blog. Bắt đầu với [bài viết bên dưới](/vi/daily-tips/why-ai-hallucinates-and-how-to-handle-it/) — vì sao mô hình tự tin bịa ra câu trả lời sai, và cách phòng tránh — rồi củng cố quy trình làm việc với [RAG](/vi/rag/), [prompt rõ ràng](/vi/prompting/) và [LLM evals](/vi/evals/).
+Đây là phần “thực hành” của blog. Mới vào blog? Hãy bắt đầu với [vì sao mô hình tự tin bịa ra câu trả lời sai](/vi/daily-tips/why-ai-hallucinates-and-how-to-handle-it/), rồi [đóng gói quy trình lặp lại thành agent skills](/vi/daily-tips/agent-skills/). Dù theo hướng nào, hãy củng cố quy trình làm việc với [RAG](/vi/rag/), [prompt rõ ràng](/vi/prompting/) và [LLM evals](/vi/evals/).

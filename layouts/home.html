@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+  {{- $config := site.Params.ananke.home -}}
+  {{- $text_alignment := "tc-l" -}}
+  {{- if eq $config.content_alignment "left" -}}
+    {{- $text_alignment = "tl-l" -}}
+  {{- else if eq $config.content_alignment "right" -}}
+    {{- $text_alignment = "tr-l" -}}
+  {{- end -}}
+
+  <article class="cf ph3 ph5-l pv3 pv4-l f4 {{ $text_alignment }} center measure-wide lh-copy nested-links {{ $.Param "text_color" | compare.Default "mid-gray" }}">
+    {{ .Content }}
+  </article>
+
+  {{/* Section used for the homepage listing. Pinned (featured) posts are shown
+       in their own section at the top and excluded from the recent list so they
+       never appear twice. Mark a post as pinned by adding `pinned = true` to
+       its front matter. */}}
+  {{ $mainSections := site.Params.mainSections | compare.Default (collections.Slice "post") }}
+  {{ $show_recent_posts := site.Params.ananke.show_recent_posts }}
+  {{ $section := collections.Where $.Site.RegularPages "Section" "in" $mainSections }}
+  {{ $pinned := collections.Where $section "Params.pinned" true }}
+  {{ $recent := collections.Where $section "Params.pinned" "ne" true }}
+  {{ $pinned_count := len $pinned }}
+  {{ $recent_count := len $recent }}
+
+  {{ if and ($show_recent_posts) (compare.Gt (math.Add $pinned_count $recent_count) 0) }}
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      {{ if compare.Gt $pinned_count 0 }}
+        <section class="w-100 mw8">
+          <h1 class="f3">{{ lang.Translate "featured" }}</h1>
+          {{ range $pinned }}
+            <div class="w-100 mb4 relative">
+              {{ .Render "summary-with-image" }}
+            </div>
+          {{ end }}
+        </section>
+      {{ end }}
+
+      {{ if compare.Gt $recent_count 0 }}
+        {{ $n_posts := $.Param "recent_posts_number" | compare.Default 3 }}
+        <section class="w-100 mw8">
+          {{ range (collections.First $n_posts $recent) }}
+            <div class="w-100 mb4 relative">
+              {{ .Render "summary-with-image" }}
+            </div>
+          {{ end }}
+        </section>
+
+        {{ if compare.Ge $recent_count (math.Add $n_posts 1) }}
+          <section class="w-100">
+            <h1 class="f3">{{ lang.Translate "more" }}</h1>
+            {{ range (collections.First 4 (collections.After $n_posts $recent))  }}
+              <h2 class="f5 fw4 mb4 dib {{ compare.Conditional (compare.Eq $.Site.Language.Direction "rtl") "ml3" "mr3" }}">
+                <a href="{{ .RelPermalink }}" class="link black dim">
+                  {{ .Title }}
+                </a>
+              </h2>
+            {{ end }}
+          </section>
+        {{ end }}
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
