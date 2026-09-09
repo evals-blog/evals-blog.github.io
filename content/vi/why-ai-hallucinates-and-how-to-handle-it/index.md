@@ -3,6 +3,7 @@ date = '2026-09-05T21:10:32+07:00'
 draft = false
 title = 'Tại sao AI hallucinates và giải quyết vấn đề này như thế nào?'
 description = 'AI hallucinates vì nó đang dự đoán từ tiếp theo, không kiểm tra sự thật. Tìm hiểu nguyên nhân và cách giảm rủi ro khi dùng AI trong thực tế.'
+featured_image = 'cover.svg'
 +++
 
 AI ngày càng giỏi trong việc viết, tóm tắt và trả lời câu hỏi. Nhưng một trong những hạn chế lớn nhất của các mô hình ngôn ngữ hiện đại là chúng có thể tạo ra câu trả lời rất hợp lý nhưng sai sự thật. Hiện tượng này được gọi là hallucination.
@@ -10,6 +11,10 @@ AI ngày càng giỏi trong việc viết, tóm tắt và trả lời câu hỏi
 Nói đơn giản, AI không phải lúc nào cũng “biết” điều gì là đúng. Nó đang dự đoán phần tiếp theo của câu trả lời dựa trên mẫu dữ liệu mà nó đã học. Vì thế, đôi khi nó “điền” thông tin bằng con đường hợp lý về mặt ngôn ngữ, dù không có căn cứ thực tế.
 
 Trong bài viết này, mình sẽ giải thích vì sao AI hallucinates, nó xảy ra ở đâu, và làm thế nào để giảm rủi ro khi dùng AI trong thực tế.
+
+![AI hallucination cover](cover.svg)
+
+*Câu trả lời tự tin chưa chắc là đúng — hãy kiểm tra nguồn.*
 
 ## Hallucination là gì?
 
@@ -31,6 +36,10 @@ Một mô hình AI không “đánh giá sự thật” như con người. Nó k
 Điều quan trọng nhất cần hiểu là: các mô hình ngôn ngữ lớn không hề “nhớ” tất cả thông tin như một người có trí nhớ. Chúng học cách dự đoán token tiếp theo trong một chuỗi văn bản.
 
 Vì vậy, khi bạn hỏi một câu hỏi khó, AI sẽ tìm cách tạo ra câu trả lời có vẻ phù hợp nhất với dữ liệu mà nó đã thấy. Nếu không có thông tin rõ ràng, nó sẽ “điền” bằng một câu trả lời hợp lý về mặt ngôn ngữ.
+
+![Predicting the next token](next-token.svg)
+
+*Mô hình chọn từ tiếp theo có xác suất cao nhất — nó không hề kiểm tra điều đó có đúng hay không.*
 
 Đây là lý do vì sao AI dễ mắc lỗi khi:
 
@@ -143,6 +152,10 @@ Thay vì hỏi “đúng không?”, hãy hỏi:
 
 Nói cách khác, AI nên là công cụ hỗ trợ suy nghĩ, không thay thế kiểm tra của con người.
 
+![Verification loop](verify-loop.svg)
+
+*Trước khi tin kết quả: AI đề xuất, con người đối chiếu nguồn, rồi chấp nhận hoặc loại bỏ.*
+
 ## Một cách hiểu đơn giản
 
 AI hallucinates giống như một người đang viết rất nhanh nhưng không luôn dừng lại để kiểm tra sự thật. Nó không phải cố ý nói dối; nó đang tạo ra một câu trả lời có vẻ hợp lý dựa trên mô hình thống kê của ngôn ngữ.
@@ -163,6 +176,14 @@ Hallucination không phải lỗi ngẫu nhiên, mà là hệ quả của cách 
 Khi bạn dùng AI đúng cách, nó sẽ trở thành một công cụ mạnh mẽ. Khi bạn tin nó mọi thứ, bạn đang đặt mình vào nguy cơ bị dẫn dắt bởi những câu trả lời nghe rất hợp lý nhưng sai thực tế.
 
 Đó chính là lý do vì sao việc hiểu hallucination là kỹ năng quan trọng trong thời đại AI.
+
+## Đọc tiếp
+
+Bài này mở đầu một chuỗi bài ngắn về cách dùng AI an toàn trong thực tế. Đọc tiếp:
+
+- [Đánh giá chất lượng AI](/vi/llm-evals/) — biến "cảm giác sai sai" thành điểm số đo được
+- [RAG thực hành](/vi/rag-guide/) — gắn câu trả lời AI vào tài liệu của bạn
+- [Prompt engineering](/vi/prompt-engineering/) — viết chỉ dẫn rõ ràng hơn
 
 ## Nguồn tham khảo
 

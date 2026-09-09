@@ -3,6 +3,7 @@ date = '2026-09-05T21:10:32+07:00'
 draft = false
 title = 'Why AI hallucinates and how to handle it'
 description = 'AI hallucinates because it predicts the next token, not because it verifies facts. Learn the causes and how to reduce risk when using AI in practice.'
+featured_image = 'cover.svg'
 +++
 
 AI is getting better at writing, summarizing, and answering questions. But one of the biggest limitations of modern language models is that they can produce answers that sound highly convincing while still being wrong. This phenomenon is called hallucination.
@@ -10,6 +11,10 @@ AI is getting better at writing, summarizing, and answering questions. But one o
 In simple terms, AI does not always know what is true. It predicts the next part of a response based on patterns in the data it has learned. Sometimes, that means it fills gaps with information that is linguistically plausible but factually unsupported.
 
 In this article, I will explain why AI hallucinates, where it happens most often, and how you can reduce the risk when using AI in practice.
+
+![AI hallucination cover](cover.svg)
+
+*A confident answer is not necessarily a true one — check the source.*
 
 ## What is hallucination?
 
@@ -31,6 +36,10 @@ A language model does not evaluate truth the way a human does. It does not have 
 The most important idea to grasp is this: large language models do not “remember” everything the way a person does. They learn how to predict the next token in a sequence of text.
 
 So when you ask a difficult question, the model tries to generate the response that best matches the patterns it has seen. If the information is unclear or incomplete, it may fill the gap with something that sounds plausible even if it is not grounded in reality.
+
+![Predicting the next token](next-token.svg)
+
+*The model picks the most probable next word — it never checks whether the claim is true.*
 
 This is why hallucinations are more likely when:
 
@@ -144,6 +153,10 @@ This is essential in practice:
 
 AI should support thinking, not replace human review.
 
+![Verification loop](verify-loop.svg)
+
+*Before you trust it: AI suggests, a human checks the source, then the answer is accepted or rejected.*
+
 ## A simple way to understand it
 
 AI hallucination is a bit like someone writing very quickly without stopping to verify the facts. It is not usually deliberate deception; it is the model producing a response that seems plausible based on patterns in language.
@@ -164,6 +177,14 @@ The important point is not “never use AI,” but rather:
 When used correctly, AI is an incredibly powerful tool. When trusted blindly, it can lead you toward answers that sound convincing but are factually wrong.
 
 That is why understanding hallucination is a critical skill in the age of AI.
+
+## Read next
+
+This post starts a short series on using AI safely in practice. Continue with:
+
+- [How to evaluate AI quality](/en/llm-evals/) — turn "it feels wrong" into a measurable score
+- [RAG in practice](/en/rag-guide/) — ground answers in your own documents
+- [Prompt engineering](/en/prompt-engineering/) — write clearer instructions
 
 ## Sources
 

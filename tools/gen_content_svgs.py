@@ -395,10 +395,122 @@ def before_after(lang):
     H = y2 + h2
     return svg(W, H, m1 + m2)
 
+# --------------------------------------------------------------------------
+# 7) Hallucination cover ----------------------------------------------------
+# --------------------------------------------------------------------------
+def h_cover(lang):
+    if lang == 'en':
+        phrase = 'sounds convincing ≠ correct'
+        chips = [('grounded', GREEN), ('invented', RED), ('unverified', AMBER)]
+    else:
+        phrase = 'nghe thuyết phục ≠ đúng'
+        chips = [('có nguồn', GREEN), ('bịa đặt', RED), ('chưa kiểm chứng', AMBER)]
+    W, H = 880, 380
+    b = [f'<rect width="880" height="380" rx="28" fill="#0f172a"/>']
+    bx, by, bw, bh = 240, 40, 400, 180
+    b.append(rrect(bx, by, bw, bh, 34, '#f8fafc'))
+    b.append(f'<path d="M {bx+90} {by+bh-8} L {bx+62} {by+bh+24} L {bx+118} {by+bh-8} Z" fill="#f8fafc"/>')
+    b.append(center('?', bx + bw / 2, by + bh / 2 + 36, 150, '#dc2626', '800'))
+    b.append(center(phrase, W / 2, by + bh + 58, 24, '#94a3b8', '600'))
+    cw, cgap = 210, 24
+    total = 3 * cw + 2 * cgap
+    x0 = (W - total) / 2
+    cy = by + bh + 98
+    for i, (label, col) in enumerate(chips):
+        x = x0 + i * (cw + cgap)
+        b.append(rrect(x, cy, cw, 44, 22, col))
+        b.append(center(label, x + cw / 2, cy + 27, 18, '#ffffff', '700'))
+    return svg(W, H, ''.join(b))
+
+# --------------------------------------------------------------------------
+# 8) Next-token prediction --------------------------------------------------
+# --------------------------------------------------------------------------
+def next_token(lang):
+    if lang == 'en':
+        q = 'what word comes next?'
+        prefix = ['The', 'cat', 'sits', 'on', 'the']
+        cands = [('mat', 0.71), ('floor', 0.18), ('roof', 0.05)]
+        cap = 'highest probability ≠ true — the model never checked a fact'
+    else:
+        q = 'từ nào đến tiếp theo?'
+        prefix = ['Con', 'mèo', 'đang', 'ngồi', 'trên']
+        cands = [('tấm thảm', 0.71), ('sàn nhà', 0.18), ('mái nhà', 0.05)]
+        cap = 'xác suất cao nhất ≠ sự thật — mô hình chưa hề kiểm tra'
+
+    W = 880
+    b = []
+    pw, pgap = 128, 12
+    total = len(prefix) * pw + (len(prefix) - 1) * pgap
+    x0 = (W - total) / 2
+    cy = 56
+    for i, wd in enumerate(prefix):
+        x = x0 + i * (pw + pgap)
+        b.append(rrect(x, cy, pw, 58, 12, '#ffffff', BLUE, 2))
+        b.append(center(wd, x + pw / 2, cy + 37, 21, INK, '600'))
+    # "?" bubble after the prefix
+    qx = x0 + total + 34
+    b.append(f'<circle cx="{qx:.0f}" cy="{cy+29:.0f}" r="24" fill="#dc2626"/>')
+    b.append(center('?', qx, cy + 38, 30, '#ffffff', '800'))
+    b.append(center(q, W / 2, 158, 19, SUB, '600'))
+
+    tx, tw = 150, 460
+    fills = ['#1d4ed8', '#3b82f6', '#93c5fd']
+    top = 188
+    rh, rg = 34, 16
+    for i, (word, p) in enumerate(cands):
+        yy = top + i * (rh + rg)
+        b.append(rrect(tx, yy, tw, rh, 8, '#e2e8f0'))
+        fw = max(40, p * tw)
+        b.append(rrect(tx, yy, fw, rh, 8, fills[i]))
+        pct = f'{int(p*100)}%'
+        if fw > 70:
+            b.append(center(pct, tx + fw - 24, yy + 23, 17, '#ffffff', '700'))
+        else:
+            b.append(center(pct, tx + fw + 34, yy + 23, 17, INK, '700'))
+        b.append(put_top([word], tx + tw + 18, yy + 9, 19, INK, weight='600'))
+    b.append(center(cap, W / 2, top + 3 * (rh + rg) + 26, 18, SUB, '600'))
+    H = top + 3 * (rh + rg) + 56
+    return svg(W, H, ''.join(b))
+
+# --------------------------------------------------------------------------
+# 9) Verification loop (human-in-the-loop) ----------------------------------
+# --------------------------------------------------------------------------
+def verify_loop(lang):
+    if lang == 'en':
+        labels = [('AI drafts', 'an answer'), ('Human', 'reviews it'),
+                  ('Check the', 'source'), ('Accept', 'or reject')]
+        ret = 'wrong? refine the question and ask again'
+    else:
+        labels = [('AI đề xuất', 'câu trả lời'), ('Con người', 'rà soát'),
+                  ('Đối chiếu', 'nguồn tin'), ('Dùng', 'hay loại bỏ')]
+        ret = 'sai? làm rõ câu hỏi rồi hỏi lại'
+
+    W = 880
+    bw, gap, n = 180, 24, len(labels)
+    x0 = (W - (n * bw + (n - 1) * gap)) / 2
+    y0, bh = 90, 96
+    b = []
+    cx = []
+    for i, (a, c) in enumerate(labels):
+        x = x0 + i * (bw + gap)
+        cx.append(x + bw / 2)
+        b.append(rrect(x, y0, bw, bh, 18, '#ffffff', BLUE, 2))
+        b.append(badge(x + bw / 2, y0 - 22, 15, str(i + 1)))
+        b.append(put_top([a, c], x + bw / 2, y0 + 36, 17, INK, 'middle', lh=24, weight='600'))
+        if i < n - 1:
+            b.append(arrow_right(x + bw, x + bw + gap, y0 + bh / 2, SUB))
+    yret = 238
+    b.append(hline(cx[-1], cx[0], yret, SUB, 3, dash='7 6'))
+    b.append(arrow_up(cx[0], yret, y0 + bh + 12, SUB))
+    b.append(center(ret, W / 2, 274, 19, SUB, '600'))
+    H = 300
+    return svg(W, H, ''.join(b))
+
 jobs = {
     'llm-evals': [('eval-loop.svg', eval_loop), ('scorecard.svg', scorecard)],
     'rag-guide': [('rag-architecture.svg', rag_arch), ('open-book.svg', open_book)],
     'prompt-engineering': [('prompt-anatomy.svg', prompt_anatomy), ('before-after.svg', before_after)],
+    'why-ai-hallucinates-and-how-to-handle-it': [('cover.svg', h_cover), ('next-token.svg', next_token), ('verify-loop.svg', verify_loop)],
 }
 
 if __name__ == '__main__':
