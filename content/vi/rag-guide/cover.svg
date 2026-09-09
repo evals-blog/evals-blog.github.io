@@ -21,7 +21,7 @@
     <path d="M 98 98 L 124 124" stroke="#f8fafc" stroke-width="14" stroke-linecap="round"/>
   </g>
   <text x="680" y="120" text-anchor="middle" font-size="84" font-weight="800" letter-spacing="6" fill="#f8fafc">RAG</text>
-  <text x="680" y="175" text-anchor="middle" font-size="19" fill="#94a3b8">tra cứu · đọc · trả lời kèm nguồn</text>
+  <text x="675" y="175" text-anchor="middle" font-size="18" fill="#94a3b8">tra cứu · đọc · trả lời kèm nguồn</text>
   <g transform="translate(640 250)">
     <rect x="0" y="0" width="200" height="48" rx="24" fill="#16a34a"/>
     <text x="100" y="30" text-anchor="middle" font-size="20" font-weight="600" fill="#ffffff">[1]  page 3</text>
