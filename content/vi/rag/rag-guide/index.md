@@ -1,6 +1,7 @@
 +++
 date = '2026-09-07T09:00:00+07:00'
 draft = false
+aliases = ['/rag-guide/']
 title = 'RAG thực hành: gắn câu trả lời AI vào tài liệu của bạn'
 description = 'Mô hình ngôn ngữ chỉ biết dữ liệu mà nó được huấn luyện. RAG cho AI đọc tài liệu của bạn trước khi trả lời — giống như một kỳ thi mở sách. Các bước của pipeline, một đoạn code tối giản và mẹo tinh chỉnh.'
 summary = 'Mô hình chỉ biết dữ liệu huấn luyện. RAG cho AI đọc tài liệu của bạn trước khi trả lời — quy trình, code mẫu và mẹo tinh chỉnh.'
@@ -76,7 +77,7 @@ answer = llm.chat(prompt)
 
 ## Giới hạn thật lòng
 
-RAG làm giảm hallucination — lỗi mà bài [Tại sao AI hallucinates](/vi/why-ai-hallucinates-and-how-to-handle-it/) đã mô tả — chứ không xóa bỏ nó. Nếu truy xuất bỏ lỡ chunk đúng, mô hình lặng lẽ quay lại kiểu đoán. Nếu index đã cũ, câu trả lời sẽ tự tin nhưng sai về quy định của hôm qua. Vì vậy, thói quen từ bài đó vẫn giữ nguyên: với những câu trả lời quan trọng, con người vẫn phải đối chiếu chunk được trích dẫn với khẳng định. RAG giúp tạo ra câu trả lời có căn cứ một cách rẻ và dễ; nó không biến việc tin tưởng thành điều tự động.
+RAG làm giảm hallucination — lỗi mà bài [Tại sao AI hallucinates](/vi/daily-tips/why-ai-hallucinates-and-how-to-handle-it/) đã mô tả — chứ không xóa bỏ nó. Nếu truy xuất bỏ lỡ chunk đúng, mô hình lặng lẽ quay lại kiểu đoán. Nếu index đã cũ, câu trả lời sẽ tự tin nhưng sai về quy định của hôm qua. Vì vậy, thói quen từ bài đó vẫn giữ nguyên: với những câu trả lời quan trọng, con người vẫn phải đối chiếu chunk được trích dẫn với khẳng định. RAG giúp tạo ra câu trả lời có căn cứ một cách rẻ và dễ; nó không biến việc tin tưởng thành điều tự động.
 
 ## Điểm chính
 
@@ -88,4 +89,4 @@ RAG làm giảm hallucination — lỗi mà bài [Tại sao AI hallucinates](/vi
 
 ## Đọc tiếp
 
-Tiếp tục với các bài liên quan: [đánh giá chất lượng AI](/vi/llm-evals/) và [prompt engineering](/vi/prompt-engineering/).
+Tiếp tục với các bài liên quan: [đánh giá chất lượng AI](/vi/evals/llm-evals/) và [prompt engineering](/vi/prompting/prompt-engineering/).

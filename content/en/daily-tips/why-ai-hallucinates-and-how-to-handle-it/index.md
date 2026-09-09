@@ -1,6 +1,7 @@
 +++
 date = '2026-09-05T21:10:32+07:00'
 draft = false
+aliases = ['/why-ai-hallucinates-and-how-to-handle-it/']
 title = 'Why AI hallucinates and how to handle it'
 description = 'AI hallucinates because it predicts the next token, not because it verifies facts. Learn the causes and how to reduce risk when using AI in practice.'
 summary = 'Why AI produces confident-sounding but false answers — and how to reduce the risk: causes, examples, and practical safeguards.'
@@ -183,9 +184,9 @@ That is why understanding hallucination is a critical skill in the age of AI.
 
 This post starts a short series on using AI safely in practice. Continue with:
 
-- [How to evaluate AI quality](/en/llm-evals/) — turn "it feels wrong" into a measurable score
-- [RAG in practice](/en/rag-guide/) — ground answers in your own documents
-- [Prompt engineering](/en/prompt-engineering/) — write clearer instructions
+- [How to evaluate AI quality](/en/evals/llm-evals/) — turn "it feels wrong" into a measurable score
+- [RAG in practice](/en/rag/rag-guide/) — ground answers in your own documents
+- [Prompt engineering](/en/prompting/prompt-engineering/) — write clearer instructions
 
 ## Sources
 

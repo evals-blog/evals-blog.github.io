@@ -1,6 +1,7 @@
 +++
 date = '2026-09-05T21:10:32+07:00'
 draft = false
+aliases = ['/why-ai-hallucinates-and-how-to-handle-it/']
 title = 'Tại sao AI hallucinates và giải quyết vấn đề này như thế nào?'
 description = 'AI hallucinates vì nó đang dự đoán từ tiếp theo, không kiểm tra sự thật. Tìm hiểu nguyên nhân và cách giảm rủi ro khi dùng AI trong thực tế.'
 summary = 'Vì sao AI đưa ra câu trả lời tự tin nhưng sai sự thật — và cách giảm rủi ro: nguyên nhân, ví dụ và các biện pháp thực tế.'
@@ -182,9 +183,9 @@ Khi bạn dùng AI đúng cách, nó sẽ trở thành một công cụ mạnh m
 
 Bài này mở đầu một chuỗi bài ngắn về cách dùng AI an toàn trong thực tế. Đọc tiếp:
 
-- [Đánh giá chất lượng AI](/vi/llm-evals/) — biến "cảm giác sai sai" thành điểm số đo được
-- [RAG thực hành](/vi/rag-guide/) — gắn câu trả lời AI vào tài liệu của bạn
-- [Prompt engineering](/vi/prompt-engineering/) — viết chỉ dẫn rõ ràng hơn
+- [Đánh giá chất lượng AI](/vi/evals/llm-evals/) — biến "cảm giác sai sai" thành điểm số đo được
+- [RAG thực hành](/vi/rag/rag-guide/) — gắn câu trả lời AI vào tài liệu của bạn
+- [Prompt engineering](/vi/prompting/prompt-engineering/) — viết chỉ dẫn rõ ràng hơn
 
 ## Nguồn tham khảo
 

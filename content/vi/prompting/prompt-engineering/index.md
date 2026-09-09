@@ -1,6 +1,7 @@
 +++
 date = '2026-09-08T09:00:00+07:00'
 draft = false
+aliases = ['/prompt-engineering/']
 title = 'Prompt engineering: cách “ra lệnh” rõ ràng cho AI'
 description = 'Cùng một mô hình nhưng câu trả lời có thể rất khác nhau tùy vào cách bạn hỏi. Tìm hiểu các thành phần của một prompt tốt — vai trò, bối cảnh, nhiệm vụ, định dạng, ví dụ — và khi nào chỉ viết prompt thôi là chưa đủ.'
 summary = 'Cùng một mô hình trả lời rất khác nhau tuỳ cách bạn hỏi. Tìm hiểu cấu trúc của một prompt rõ ràng — và khi nào prompt là chưa đủ.'
@@ -84,5 +85,5 @@ Prompt cũng không thể cho bạn biết câu trả lời có tốt hay không
 
 ## Đọc tiếp
 
-- [Đánh giá chất lượng AI](/vi/llm-evals/)
-- [RAG thực hành](/vi/rag-guide/)
+- [Đánh giá chất lượng AI](/vi/evals/llm-evals/)
+- [RAG thực hành](/vi/rag/rag-guide/)

@@ -1,6 +1,7 @@
 +++
 date = '2026-09-06T09:00:00+07:00'
 draft = false
+aliases = ['/llm-evals/']
 title = 'How to evaluate AI quality: a practical intro to LLM evals'
 description = 'Chatting with a model feels great, but feelings are not data. Learn how to build a small eval set, score answers, and catch quality regressions before your users do.'
 summary = 'Turn "it feels worse" into a number: build a small eval set, score answers, and catch quality regressions before your users do.'
@@ -25,7 +26,7 @@ Without measurement, every change is a gamble, and users usually notice regressi
 Measure four things.
 
 - **Correctness**: are the facts right when a known answer exists?
-- **Faithfulness**: does the answer stay grounded in the sources you provided, or drift into confident invention — the hallucination failure mode from my earlier post on [why AI hallucinates](/en/why-ai-hallucinates-and-how-to-handle-it/)?
+- **Faithfulness**: does the answer stay grounded in the sources you provided, or drift into confident invention — the hallucination failure mode from my earlier post on [why AI hallucinates](/en/daily-tips/why-ai-hallucinates-and-how-to-handle-it/)?
 - **Format and style**: does the output follow your rules for structure, length, tone, or language?
 - **Edge cases**: how does it handle empty input, off-topic questions, unsafe requests, or unanswerable questions?
 
@@ -94,4 +95,4 @@ This is the regression mindset of a test suite. If the overall score rises but a
 - Score simply: exact or contains match, 1–5 rubrics, and an LLM-as-judge checked by humans.
 - Rerun the same set on every change; each regression becomes a new eval case.
 
-**Read next:** [grounding AI answers with RAG](/en/rag-guide/) and [writing better prompts](/en/prompt-engineering/).
+**Read next:** [grounding AI answers with RAG](/en/rag/rag-guide/) and [writing better prompts](/en/prompting/prompt-engineering/).

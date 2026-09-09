@@ -1,6 +1,7 @@
 +++
 date = '2026-09-08T09:00:00+07:00'
 draft = false
+aliases = ['/prompt-engineering/']
 title = 'Prompt engineering: how to talk to AI models clearly'
 description = 'The same model gives very different answers depending on how you ask. Learn the building blocks of a good prompt — role, context, task, format, examples — and when prompting is not enough.'
 summary = 'The same model answers very differently depending on how you ask. Learn the building blocks of a clear prompt — and when prompting is not enough.'
@@ -84,5 +85,5 @@ Prompting also cannot tell you whether answers are good. If you reuse a prompt o
 
 ## Read next
 
-- [Evaluating AI quality](/en/llm-evals/)
-- [Grounding answers with RAG](/en/rag-guide/)
+- [Evaluating AI quality](/en/evals/llm-evals/)
+- [Grounding answers with RAG](/en/rag/rag-guide/)

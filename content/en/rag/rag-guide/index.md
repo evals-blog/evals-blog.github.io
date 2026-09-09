@@ -1,6 +1,7 @@
 +++
 date = '2026-09-07T09:00:00+07:00'
 draft = false
+aliases = ['/rag-guide/']
 title = 'RAG in practice: grounding AI answers in your own documents'
 description = 'A language model only knows its training data. RAG lets it read your documents before answering — like an open-book exam. The pipeline, a minimal code sketch, and tuning tips.'
 summary = 'A model only knows its training data. RAG lets it read your documents before answering — the pipeline, a code sketch, and tuning tips.'
@@ -75,7 +76,7 @@ answer = llm.chat(prompt)
 
 ## Honest limits
 
-RAG reduces hallucination — the failure mode described in [Why AI hallucinates and how to handle it](/en/why-ai-hallucinates-and-how-to-handle-it/) — but it does not remove it. If retrieval misses the right chunk, the model quietly falls back to guessing. If the index is stale, the answer is confidently wrong about yesterday's rules. So the habit from that post stays: for answers that matter, a human checks the cited chunk against the claim. RAG makes grounded answers cheap; it does not make trust automatic.
+RAG reduces hallucination — the failure mode described in [Why AI hallucinates and how to handle it](/en/daily-tips/why-ai-hallucinates-and-how-to-handle-it/) — but it does not remove it. If retrieval misses the right chunk, the model quietly falls back to guessing. If the index is stale, the answer is confidently wrong about yesterday's rules. So the habit from that post stays: for answers that matter, a human checks the cited chunk against the claim. RAG makes grounded answers cheap; it does not make trust automatic.
 
 ## Key takeaways
 
@@ -87,4 +88,4 @@ RAG reduces hallucination — the failure mode described in [Why AI hallucinates
 
 ## Read next
 
-Continue with related posts: [evaluating AI quality](/en/llm-evals/) and [writing better prompts](/en/prompt-engineering/).
+Continue with related posts: [evaluating AI quality](/en/evals/llm-evals/) and [writing better prompts](/en/prompting/prompt-engineering/).

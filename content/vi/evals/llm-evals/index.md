@@ -1,6 +1,7 @@
 +++
 date = '2026-09-06T09:00:00+07:00'
 draft = false
+aliases = ['/llm-evals/']
 title = 'Đánh giá chất lượng AI: nhập môn LLM evals thực hành'
 description = 'Trò chuyện với mô hình thì rất thích, nhưng cảm xúc không phải là dữ liệu. Tìm hiểu cách xây một bộ eval nhỏ, chấm điểm câu trả lời và phát hiện chất lượng đi xuống trước khi người dùng gặp phải.'
 summary = 'Biến "cảm giác tệ hơn" thành con số: xây bộ eval nhỏ, chấm điểm câu trả lời và bắt kịp chất lượng đi xuống trước khi người dùng gặp phải.'
@@ -25,7 +26,7 @@ Không có phép đo, mỗi thay đổi là một canh bạc, và người nhậ
 Bắt đầu với bốn thứ.
 
 - **Độ đúng (correctness)**: câu trả lời có nêu đúng sự thật khi có đáp án rõ ràng không?
-- **Faithfulness**: câu trả lời có bám sát nguồn bạn cung cấp, hay trôi dạt vào những phát biểu tự tin nhưng không có căn cứ? Đây chính là failure mode hallucination mà mình đã viết trong bài [vì sao AI hallucinates](/vi/why-ai-hallucinates-and-how-to-handle-it/).
+- **Faithfulness**: câu trả lời có bám sát nguồn bạn cung cấp, hay trôi dạt vào những phát biểu tự tin nhưng không có căn cứ? Đây chính là failure mode hallucination mà mình đã viết trong bài [vì sao AI hallucinates](/vi/daily-tips/why-ai-hallucinates-and-how-to-handle-it/).
 - **Định dạng và phong cách**: đầu ra có tuân theo quy tắc của bạn về cấu trúc, độ dài, giọng văn hay ngôn ngữ không?
 - **Edge cases**: mô hình xử lý thế nào với đầu vào rỗng, câu hỏi lạc đề, yêu cầu không an toàn, hay những câu không thể trả lời?
 
@@ -94,4 +95,4 @@ Một bộ eval chỉ phát huy tác dụng khi được dùng đi dùng lại: 
 - Chấm điểm đơn giản trước: khớp chính xác hoặc chứa từ khóa, rubric 1–5, và LLM-as-judge có con người kiểm tra.
 - Chạy lại cùng một bộ eval ở mỗi thay đổi; mỗi regression trở thành một ví dụ eval mới.
 
-**Đọc tiếp:** [RAG thực hành](/vi/rag-guide/) và [prompt engineering](/vi/prompt-engineering/).
+**Đọc tiếp:** [RAG thực hành](/vi/rag/rag-guide/) và [prompt engineering](/vi/prompting/prompt-engineering/).

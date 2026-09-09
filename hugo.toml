@@ -6,6 +6,8 @@ defaultContentLanguageInSubdir = true
 
 [params]
 site_logo = "images/logo.jpg"
+# The four topic sections below feed the homepage's recent-post listing.
+mainSections = ["evals", "rag", "prompting", "daily-tips"]
 
 [languages.vi]
 label = "Vietnamese"
