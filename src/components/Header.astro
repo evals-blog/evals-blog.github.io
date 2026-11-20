@@ -1,0 +1,94 @@
+---
+import ThemeToggle from '@/components/ThemeToggle.astro';
+import { t } from '@/i18n';
+import {
+  type Locale,
+  localeNames,
+  localePath,
+  localeShort,
+  otherLocale,
+  switchLocalePath,
+} from '@/utils/i18n';
+import { getSectionSlug, getSections } from '@/utils/posts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const tr = t(locale);
+const sections = await getSections(locale);
+
+const altLocale = otherLocale(locale);
+const altHref = switchLocalePath(Astro.url.pathname, altLocale);
+const currentPath = Astro.url.pathname;
+
+function isActive(href: string): boolean {
+  return currentPath === href || currentPath.startsWith(href);
+}
+---
+
+<header class="sticky top-0 z-20 border-b border-border bg-surface backdrop-blur-md">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6">
+    <div class="flex items-center gap-3 py-3">
+      <a
+        href={localePath('/', locale)}
+        class="text-lg font-bold text-text no-underline hover:text-accent"
+      >
+        {tr('site.name')}
+      </a>
+
+      <div class="ml-auto flex items-center gap-1.5">
+        <a
+          href={altHref}
+          hreflang={altLocale}
+          title={`${tr('lang.switch')}: ${localeNames[altLocale]}`}
+          class="rounded-lg px-2.5 py-1.5 text-xs font-semibold text-text-secondary no-underline transition-colors hover:bg-bg-secondary hover:text-text"
+        >
+          {localeShort[altLocale]}
+        </a>
+        <ThemeToggle locale={locale} />
+      </div>
+    </div>
+
+    <nav aria-label={tr('nav.topics')} class="-mx-1 overflow-x-auto pb-2">
+      <ul class="m-0 flex list-none items-center gap-1 p-0">
+        <li>
+          <a
+            href={localePath('/', locale)}
+            aria-current={currentPath === localePath('/', locale) ? 'page' : undefined}
+            class:list={[
+              'block whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-medium no-underline transition-colors hover:bg-bg-secondary hover:text-text',
+              {
+                'bg-bg-secondary text-text': currentPath === localePath('/', locale),
+                'text-text-secondary': currentPath !== localePath('/', locale),
+              },
+            ]}
+          >
+            {tr('nav.home')}
+          </a>
+        </li>
+        {sections.map((section) => {
+          const href = localePath(`/${getSectionSlug(section)}/`, locale);
+          return (
+            <li>
+              <a
+                href={href}
+                aria-current={isActive(href) ? 'page' : undefined}
+                class:list={[
+                  'block whitespace-nowrap rounded-lg px-3 py-1.5 text-sm font-medium no-underline transition-colors hover:bg-bg-secondary hover:text-text',
+                  {
+                    'bg-bg-secondary text-text': isActive(href),
+                    'text-text-secondary': !isActive(href),
+                  },
+                ]}
+              >
+                {section.data.title}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+</header>

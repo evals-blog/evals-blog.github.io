@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" role="img" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif">
+  <rect width="880" height="380" rx="28" fill="#0f172a"/>
+  <circle cx="96" cy="96" r="18" fill="#f59e0b"/>
+  <circle cx="784" cy="92" r="24" fill="#7c3aed" opacity="0.8"/>
+  <circle cx="808" cy="296" r="14" fill="#16a34a"/>
+  <path d="M 60 290 l 60 0 M 86 260 l 0 60 M 60 290 l 26 30 M 120 290 l -26 30" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <g transform="translate(120 60)">
+    <rect x="0" y="0" width="640" height="150" rx="26" fill="#1e293b"/>
+    <path d="M 26 118 L 26 150 L 58 118" fill="#1e293b"/>
+    <text x="40" y="52" font-size="24" font-weight="600" fill="#f8fafc">Hỏi rõ ràng,</text><text x="40" y="86" font-size="24" font-weight="600" fill="#f8fafc">nhận câu trả lời đúng trọng tâm.</text>
+    <text x="40" y="112" font-size="19" fill="#94a3b8">vai trò · ngữ cảnh · nhiệm vụ · định dạng · ví dụ</text>
+  </g>
+  <g transform="translate(120 258)">
+    <rect x="0" y="0" width="640" height="58" rx="29" fill="#ffffff"/>
+    <circle cx="36" cy="29" r="10" fill="#2563eb"/>
+    <text x="66" y="37" font-size="20" fill="#334155">Send</text>
+    <rect x="586" y="22" width="22" height="6" rx="3" fill="#2563eb"/>
+  </g>
+</svg>

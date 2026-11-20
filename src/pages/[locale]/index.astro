@@ -1,0 +1,10 @@
+---
+import HomePage from '@/components/HomePage.astro';
+import { type Locale, locales } from '@/utils/i18n';
+
+export const getStaticPaths = () => locales.map((locale) => ({ params: { locale } }));
+
+const { locale } = Astro.params as { locale: Locale };
+---
+
+<HomePage locale={locale} />

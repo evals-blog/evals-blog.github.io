@@ -1,0 +1,101 @@
+---
+import Tag from '@/components/Tag.astro';
+import { t } from '@/i18n';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { formatDate, isoDate } from '@/utils/format';
+import { type Locale, localePath } from '@/utils/i18n';
+import {
+  type BlogPost,
+  getPostSection,
+  getSectionSlug,
+  getSections,
+  readingTime,
+} from '@/utils/posts';
+import { render } from 'astro:content';
+
+interface Props {
+  post: BlogPost;
+  locale: Locale;
+}
+
+const { post, locale } = Astro.props;
+const tr = t(locale);
+
+const { Content } = await render(post);
+const { minutes } = readingTime(post.body, post.data.readTime);
+const section = getPostSection(post);
+const sections = await getSections(locale);
+const sectionTitle = sections.find((entry) => getSectionSlug(entry) === section)?.data.title ?? section;
+const cover = post.data.featuredImage;
+---
+
+<BaseLayout
+  title={`${post.data.title} — ${tr('site.name')}`}
+  description={post.data.description}
+  locale={locale}
+  ogType="article"
+  publishedTime={post.data.date}
+  modifiedTime={post.data.lastmod}
+  image={cover}
+>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6">
+    <nav aria-label="Breadcrumb" class="mb-6 text-sm">
+      <a
+        href={localePath(`/${section}/`, locale)}
+        class="text-text-secondary no-underline hover:text-accent"
+      >
+        {sectionTitle}
+      </a>
+    </nav>
+
+    <header class="mb-10 border-b border-border pb-8">
+      <time datetime={isoDate(post.data.date)} class="block text-sm text-text-secondary">
+        {formatDate(post.data.date, locale)}
+      </time>
+
+      <h1 class="mt-2 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+        {post.data.title}
+      </h1>
+
+      <p class="m-0 mt-3 text-base leading-relaxed text-text-secondary">{post.data.description}</p>
+
+      <div class="mt-4 flex flex-wrap items-center gap-3 text-sm text-text-secondary">
+        <span>{tr('post.by')} {post.data.author}</span>
+        <span aria-hidden="true">·</span>
+        <span>{minutes} {tr('post.readTime')}</span>
+      </div>
+
+      {
+        post.data.tags.length > 0 && (
+          <div class="mt-4 flex flex-wrap gap-2">
+            {post.data.tags.map((tag: string) => (
+              <Tag label={tag} />
+            ))}
+          </div>
+        )
+      }
+    </header>
+
+    {cover && (
+      <img
+        src={cover}
+        alt=""
+        width="1200"
+        height="630"
+        loading="eager"
+        decoding="async"
+        class="mb-10 w-full rounded-xl border border-border"
+      />
+    )}
+
+    <div class="post-content prose max-w-none">
+      <Content />
+    </div>
+
+    <footer class="mt-14 border-t border-border pt-8">
+      <a href={localePath('/', locale)} class="font-semibold no-underline hover:underline">
+        &larr; {tr('post.back')}
+      </a>
+    </footer>
+  </article>
+</BaseLayout>

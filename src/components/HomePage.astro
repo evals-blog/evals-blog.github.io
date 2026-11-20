@@ -1,0 +1,107 @@
+---
+import PostCard from '@/components/PostCard.astro';
+import { t } from '@/i18n';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { type Locale, localePath } from '@/utils/i18n';
+import { getPostHref, getPosts, getSectionSlug, getSections, splitPinned } from '@/utils/posts';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const tr = t(locale);
+
+const [posts, sections] = await Promise.all([getPosts(locale), getSections(locale)]);
+const { pinned, recent } = splitPinned(posts);
+const latest = recent.slice(0, 3);
+const more = recent.slice(3, 9);
+---
+
+<BaseLayout title={tr('site.name')} description={tr('home.description')} locale={locale}>
+  <section class="mx-auto max-w-3xl px-4 pb-10 pt-14 text-center sm:px-6">
+    <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl">{tr('home.title')}</h1>
+    <p class="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-text-secondary">
+      {tr('home.description')}
+    </p>
+  </section>
+
+  <div class="mx-auto max-w-3xl px-4 sm:px-6">
+    {
+      pinned.length > 0 && (
+        <section class="mb-12" aria-labelledby="featured-heading">
+          <h2 id="featured-heading" class="mb-4 text-2xl font-bold tracking-tight">
+            {tr('home.featured')}
+          </h2>
+          <ul class="m-0 flex list-none flex-col gap-4 p-0">
+            {pinned.map((post) => (
+              <li>
+                <PostCard post={post} locale={locale} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      latest.length > 0 && (
+        <section class="mb-12" aria-labelledby="latest-heading">
+          <h2 id="latest-heading" class="mb-4 text-2xl font-bold tracking-tight">
+            {tr('home.latest')}
+          </h2>
+          <ul class="m-0 flex list-none flex-col gap-4 p-0">
+            {latest.map((post) => (
+              <li>
+                <PostCard post={post} locale={locale} />
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    {
+      more.length > 0 && (
+        <section class="mb-12" aria-labelledby="more-heading">
+          <h2 id="more-heading" class="mb-4 text-2xl font-bold tracking-tight">
+            {tr('home.more')}
+          </h2>
+          <ul class="m-0 flex list-none flex-col gap-2 p-0">
+            {more.map((post) => (
+              <li>
+                <a
+                  href={getPostHref(post, locale)}
+                  class="text-base font-medium text-text no-underline hover:text-accent"
+                >
+                  {post.data.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
+
+    <section class="mb-8" aria-labelledby="topics-heading">
+      <h2 id="topics-heading" class="mb-4 text-2xl font-bold tracking-tight">
+        {tr('nav.topics')}
+      </h2>
+      <ul class="m-0 grid list-none gap-4 p-0 sm:grid-cols-2">
+        {sections.map((section) => (
+          <li>
+            <a
+              href={localePath(`/${getSectionSlug(section)}/`, locale)}
+              class="block h-full rounded-xl border border-border bg-surface p-5 no-underline transition-shadow hover:shadow-md"
+            >
+              <span class="block font-bold text-text">{section.data.title}</span>
+              <span class="mt-1 block text-sm leading-relaxed text-text-secondary">
+                {section.data.description}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,24 @@
+---
+import PostPage from '@/components/PostPage.astro';
+import { type Locale, locales } from '@/utils/i18n';
+import { type BlogPost, getPostStaticPaths } from '@/utils/posts';
+
+export const getStaticPaths = async () => {
+  const paths = [];
+  for (const locale of locales) {
+    const postPaths = await getPostStaticPaths(locale);
+    for (const entry of postPaths) {
+      paths.push({
+        params: { locale, section: entry.params.section, slug: entry.params.slug },
+        props: { post: entry.props.post },
+      });
+    }
+  }
+  return paths;
+};
+
+const { locale } = Astro.params as { locale: Locale };
+const { post } = Astro.props as { post: BlogPost };
+---
+
+<PostPage locale={locale} post={post} />

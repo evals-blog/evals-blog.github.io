@@ -1,0 +1,24 @@
+---
+import SectionPage from '@/components/SectionPage.astro';
+import { type Locale, locales } from '@/utils/i18n';
+import { type Section, getSectionStaticPaths } from '@/utils/posts';
+
+export const getStaticPaths = async () => {
+  const paths = [];
+  for (const locale of locales) {
+    const sectionPaths = await getSectionStaticPaths(locale);
+    for (const entry of sectionPaths) {
+      paths.push({
+        params: { locale, section: entry.params.section },
+        props: { section: entry.props.section },
+      });
+    }
+  }
+  return paths;
+};
+
+const { locale } = Astro.params as { locale: Locale };
+const { section } = Astro.props as { section: Section };
+---
+
+<SectionPage locale={locale} section={section} />

@@ -1,0 +1,23 @@
+---
+// Both locales are URL-prefixed (/vi/, /en/), so the bare root has no page of its
+// own. Send it to the default locale, matching the previous Hugo setup
+// (defaultContentLanguage = "vi", defaultContentLanguageInSubdir = true).
+const target = '/vi/';
+---
+
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Evals Blog</title>
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={new URL(target, Astro.site).href} />
+  </head>
+  <body>
+    <p>
+      <a href="/vi/">Evals Blog</a> · <a href="/en/">Evals Blog</a>
+    </p>
+  </body>
+</html>
