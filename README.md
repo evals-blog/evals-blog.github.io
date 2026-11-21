@@ -10,7 +10,10 @@ page's own heading is the longer **Evals Blog by Thuat Nguyen**, with the taglin
 better** beneath it. The author name otherwise appears only as post byline and in the footer
 copyright line.
 
-The site has a **single topic** (`daily-tips`) and a **single post**, in both languages.
+The site has two topics — **Kiểm thử / Testing** (`testing`) and **Daily tips** (`daily-tips`) — and
+two posts, each published in both languages. Keep topic and post slugs identical across locales:
+`BaseLayout` builds the `hreflang` alternates by swapping only the locale segment, so a slug that
+exists in one language only would advertise a 404.
 
 ## Quick start
 
@@ -32,11 +35,11 @@ breaks:
 | --- | --- |
 | Home (VI) | `/vi/` |
 | Home (EN) | `/en/` |
-| The only topic page | `/vi/daily-tips/` · `/en/daily-tips/` |
-| The one published post | `/vi/daily-tips/why-ai-hallucinates-and-how-to-handle-it/` · `/en/…` |
+| Topic pages | `/vi/testing/` · `/vi/daily-tips/` (and `/en/…`) |
+| Posts | `/vi/testing/em-test-ung-dung-nay-ky-chua/` · `/vi/daily-tips/why-ai-hallucinates-and-how-to-handle-it/` |
 | Root | `/` → redirects to `/vi/` (the old site's default language) |
 
-Topics: `evals`, `rag`, `prompting`, `daily-tips`.
+Live topics: `testing` (order 5), `daily-tips` (order 10).
 
 ## Project structure
 
@@ -104,9 +107,11 @@ tags: []                               # optional
 
 ## Current content
 
-Only one post is published, in both languages:
+Two posts are published, in both languages:
 
 ```
+src/content/blog/en/testing/em-test-ung-dung-nay-ky-chua.md
+src/content/blog/vi/testing/em-test-ung-dung-nay-ky-chua.md
 src/content/blog/en/daily-tips/why-ai-hallucinates-and-how-to-handle-it.md
 src/content/blog/vi/daily-tips/why-ai-hallucinates-and-how-to-handle-it.md
 ```
@@ -140,9 +145,9 @@ Their SVGs under `public/images/posts/<locale>/<section>/<slug>/` become unused 
   tagline is *Testing for better* (kept in English for both locales, like the brand name).
 - **Footer** shows the wordmark, `© <year> Thuat Nguyen`, the topic links and the language
   switch — the "All rights reserved." line was removed.
-- **One topic, one post.** `daily-tips` is the only topic; the other three are draft and no longer
-  appear anywhere. Only *Why AI hallucinates and how to handle it* is published, in both
-  languages.
+- **Two topics, two posts.** `testing` (order 5) and `daily-tips` (order 10) are live; the other
+  three topics are draft and no longer appear anywhere. Published posts, both languages:
+  *Em test ứng dụng này kỹ chưa?* (new) and *Why AI hallucinates and how to handle it*.
 - **Content is otherwise verbatim.** Prose and SVG diagrams were ported unchanged, except that
   the post's "Read next" block (which pointed at the retired topics) was dropped, and the
   `daily-tips` intro lost its links to them, so no internal link 404s.
